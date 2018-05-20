@@ -1,0 +1,160 @@
+﻿@model DIGPES.ViewModel.QuestionarioVM
+
+@{
+    ViewData["Title"] = "Details";
+
+    var id = @Model.Pesquisa.id;
+    @Model.Id = id;
+    var nome = Model.Pesquisa.Nome;
+    @Model.Nome = nome;
+    var produto = Model.Pesquisa.CodigoProduto;
+    @Model.CodigoProduto = produto;
+    var data = Model.Pesquisa.Data;
+    Model.Data = Model.Pesquisa.Data;
+    var OS = Model.Pesquisa.OS;
+    Model.OS = OS;
+}
+
+<h2>Detalhes</h2>
+
+<div class="novofundo">
+
+    <form id="contact" asp-action="Atualizar" asp-controller="Pesquisa" method="POST" role="form" asp-antiforgery="true">
+
+        <div>
+            <h4>PesquisaModel</h4>
+            <hr />
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            OS
+                        </th>
+                        <th>
+                            Código do Produto
+                        </th>
+                        <th>
+                            Nome
+                        </th>
+                        <th>
+                            Data
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @Model.Pesquisa.id
+                        </td>
+                        <td>
+                            @Model.Pesquisa.CodigoProduto
+                        </td>
+                        <td>
+                            @Model.Pesquisa.Nome
+                        </td>
+                        <td>
+                            @Model.Pesquisa.Data
+                        </td>
+                        <td></td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <hr />
+
+            
+
+            <div class="form-group" id="GrupoA">
+                <h5>A)	O Sr(a) ainda possui o produto mencionado acima ?</h5>
+
+                <input asp-for="@Model.QuestaoA" value="@Model.QuestaoA[0].Id" type="radio" id="QuestaoAS" />
+                <label asp-for="@Model.QuestaoA[0].Id">@Model.QuestaoA[0].Valor</label>
+
+                <input asp-for="@Model.QuestaoA" value="@Model.QuestaoA[1].Id" type="radio" id="QuestaoAN" />
+                <label asp-for="@Model.QuestaoA[1].Id">@Model.QuestaoA[1].Valor</label>
+
+                <input asp-for="@Model.QuestaoA[0].Id" type="hidden" />
+            </div>
+
+
+            <div class="form-group" id="GrupoB">
+                <h5>B)	O Sr(a) ainda possui o produto mencionado acima ?</h5>
+
+                <input asp-for="@Model.QuestaoB" value="@Model.QuestaoB[0].Id" type="radio" />
+                <label asp-for="@Model.QuestaoB[0].Id">@Model.QuestaoB[0].Valor</label>
+
+                <input asp-for="@Model.QuestaoB" value="@Model.QuestaoB[1].Id" type="radio" />
+                <label asp-for="@Model.QuestaoB[1].Id">@Model.QuestaoB[1].Valor</label>
+
+                <input asp-for="@Model.QuestaoB[0].Id" type="hidden" />
+            </div>
+
+            <div class="form-group" id="GrupoC">
+                <h5>C)Para que tipo de serviço você solicitou assistência técnica:</h5>
+
+                <input asp-for="@Model.QuestaoC" value="@Model.QuestaoC[0].Id" type="radio" />
+                <label asp-for="@Model.QuestaoC[0].Id">@Model.QuestaoC[0].Valor</label>
+
+                <input asp-for="@Model.QuestaoC" value="@Model.QuestaoC[1].Id" type="radio" />
+                <label asp-for="@Model.QuestaoC[1].Id">@Model.QuestaoC[1].Valor</label>
+
+                <input asp-for="@Model.QuestaoC[0].Id" type="hidden" />
+            </div>
+
+
+            <div class="form-group" id="GrupoD">
+                <h5>
+                    D)	Como você localizou o telefone do Serviço Autorizado?  (Assinale quantas quiser)
+                </h5>
+
+                @foreach (var item in @Model.QuestaoD)
+            {
+                    <input asp-for="@item.Checado" type="checkbox" />
+                    <label asp-for="@item.Id">@item.Valor</label>
+                    <input asp-for="@item.Id" type="hidden" class="checado" />
+                    <input asp-for="@item.Valor" type="hidden" class="checado" />
+                    <br />
+        }
+            </div>
+
+
+            <div class="form-group" id="Justi">
+                <h5>D)	Baseado no atendimento recebido pelo pessoal do Serviço Autorizado, o Sr(a) diria que está:</h5>
+
+                <label>Justificativa </label>
+
+                <input asp-for="@Model.Justificativa" value="@Model.Justificativa" type="text" id="justifique" />
+                <input asp-for="@Model.Justificativa" type="hidden" />
+            </div>
+
+            <div class="form-group" id="GrupoE">
+                <h5>E)Você recomendaria os nossos produtos para alguém </h5>
+
+                <input asp-for="@Model.QuestaoE" value="@Model.QuestaoE[0].Id" type="radio" />
+                <label asp-for="@Model.QuestaoE[0].Id">@Model.QuestaoE[0].Valor</label>
+
+                <input asp-for="@Model.QuestaoE" value="@Model.QuestaoE[1].Id" type="radio" />
+                <label asp-for="@Model.QuestaoE[1].Id">@Model.QuestaoE[1].Valor</label>
+
+                <input asp-for="@Model.QuestaoE[0].Id" type="hidden" />
+            </div>
+
+
+
+        </div>
+
+        <div>
+            <input asp-for="@Model.Id" type="hidden" />
+            <input asp-for="@Model.Nome" type="hidden" />
+            <input asp-for="@Model.CodigoProduto" type="hidden" />
+            <input asp-for="@Model.OS" type="hidden" />
+
+            <button name="submit" type="submit" id="submit-1" data-submit="...">Próximo</button>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+
+</div>

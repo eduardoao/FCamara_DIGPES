@@ -1,0 +1,97 @@
+﻿@model IEnumerable<DIGPES.ViewModel.QuestionarioVM>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<div id="sumarizado" class="sumarizado">
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.OS)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CodigoProduto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Data)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QuestaoA)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QuestaoB)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QuestaoC)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QuestaoD)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Justificativa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QuestaoE)
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodigoProduto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Data)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuestaoA[0].Valor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuestaoB[0].Valor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuestaoC[0].Valor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuestaoD[0].Valor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Justificativa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuestaoE[0].Valor)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <li><a asp-area="" asp-controller="Pesquisa" asp-action="Index">Charts with DataTable</a></li>
+
+  
+
+</div>
+
+
+

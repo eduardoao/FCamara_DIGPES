@@ -1,0 +1,38 @@
+﻿@model DIGPES.Models.PesquisaModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>PesquisaModel</h4>
+<hr />
+
+<section id="pagina1">
+    <div class="container">      
+            <form id="contact" asp-action="Create" asp-controller="Pesquisa" method="POST" role="form" asp-antiforgery="true">
+            <h3>PESQUISA DE SATISFAÇÃO</h3>
+            <h4>DIGPES</h4>
+            <fieldset>                
+                <input asp-for="OS" placeholder="Ordem de Serviço"  type="text" tabindex="1" required autofocus>
+            </fieldset>
+            <fieldset>
+                <input asp-for="CodigoProduto" placeholder="Produto" type="text"  tabindex="2" required>
+            </fieldset>
+            <fieldset>
+                <input asp-for="Nome" placeholder="Nome (Obrigatório)" id="Nome" type="text" tabindex="3" required>
+            </fieldset>
+            <fieldset>
+                <input asp-for="Data"  placeholder="Data" type="date" class="tamanhodata" id="Data" tabindex="4" required>
+            </fieldset>
+            <fieldset>
+                <button name="submit" type="submit" id="submit-1" data-submit="...Enviando">Próximo</button>
+            </fieldset>
+        </form>
+
+    </div>
+</section>
+
+
+

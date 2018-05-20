@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using DIGPES.Models;
 
 namespace DIGPES
 {
@@ -22,6 +24,12 @@ namespace DIGPES
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddDbContext<DIGPESContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("DIGPESContext")));
+
+            //services.AddDbContext<DIGPESContext>(options =>
+            //        options.UseSqlServer(Configuration.GetConnectionString("DIGPESContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,7 +51,7 @@ namespace DIGPES
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Pesquisa}/{action=Create}/{id?}");
             });
         }
     }
