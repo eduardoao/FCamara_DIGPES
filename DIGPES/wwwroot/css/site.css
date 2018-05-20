@@ -158,13 +158,7 @@ fieldset {
     color: #888;
 }
 
-/*body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -179,4 +173,76 @@ fieldset {
 
 input[type="text"]:disabled {
     background: #dddddd;
+}
+
+
+.container-center {
+    width: 850px;
+    margin: 0 auto;    
+}
+
+
+
+
+.cor-segundo-box {
+    background-color: #71c2ee !important;
+    padding: 25px;
+    margin: 150px 0;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+    .cor-segundo-box input[type="text"],
+    .cor-segundo-box input[type="email"],
+    .cor-segundo-box input[type="tel"],
+    .cor-segundo-box input[type="url"],
+    .cor-segundo-box textarea {
+        width: 100%;
+        border: 1px solid #ccc;
+        background: #FFF;
+        margin: 0 0 5px;
+        padding: 10px;
+    }
+
+        .cor-segundo-box input[type="text"]:hover,
+        .cor-segundo-box input[type="email"]:hover,
+        .cor-segundo-box input[type="tel"]:hover,
+        .cor-segundo-box input[type="url"]:hover,
+        .cor-segundo-box textarea:hover {
+            -webkit-transition: border-color 0.3s ease-in-out;
+            -moz-transition: border-color 0.3s ease-in-out;
+            transition: border-color 0.3s ease-in-out;
+            border: 1px solid #aaa;
+        }
+
+.cor-segundo-box textarea {
+    height: 100px;
+    max-width: 100%;
+    resize: none;
+}
+
+.cor-segundo-box button[type="submit"] {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: #337ab7;
+    color: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.cor-segundo-box button[type="submit"]:hover {
+    background: #43A047;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.cor-segundo-box button[type="submit"]:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+.with-text {
+    width: 440px;
 }

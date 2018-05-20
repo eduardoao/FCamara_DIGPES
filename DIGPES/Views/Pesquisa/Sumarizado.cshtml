@@ -2,15 +2,12 @@
 
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Tabela de respostas";
 }
 
-<h2>Index</h2>
+<h2>Sumarizado</h2>
 
-<div id="sumarizado" class="sumarizado">
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
+<div id="sumarizado" class="sumarizado">   
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -87,9 +84,7 @@
         </tbody>
     </table>
 
-    <li><a asp-area="" asp-controller="Pesquisa" asp-action="Index">Charts with DataTable</a></li>
-
-  
+    <a asp-area="" class="btn btn-info" asp-controller="Pesquisa" asp-action="Index">Gráfico de respostas</a> 
 
 </div>
 

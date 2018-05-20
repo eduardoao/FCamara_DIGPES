@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DIGPES.Models;
 using DIGPES.ViewModel;
-using System;
 using System.Linq;
 
 namespace DIGPES.Controllers
@@ -75,9 +74,7 @@ namespace DIGPES.Controllers
             return View();
         }
 
-        // POST: PesquisaModels/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(PesquisaModel pesquisaModel)
@@ -139,7 +136,7 @@ namespace DIGPES.Controllers
                 }
                 else
                 {
-                    questionarioVm.QuestaoA = new List<Categoria>() { new Categoria { Id = 1, Valor = "Náo" } };
+                    questionarioVm.QuestaoA = new List<Categoria>() { new Categoria { Id = 1, Valor = "Não" } };
                 }
             }
 
@@ -180,8 +177,7 @@ namespace DIGPES.Controllers
                 default:
                     break;
             }
-
-
+            
             // var valorcheckbox = pesquisa.QuestaoD.Split(",");
             // foreach (var item in pesquisa.QuestaoD)
             {
@@ -228,16 +224,17 @@ namespace DIGPES.Controllers
             return questionarioVm;
 
         }
-
              
         public JsonResult GraficoA()
         {            
             var Total = _context.PesquisaModel.ToArray().Length;
             var sumQuestaoAS = _context.PesquisaModel.Where(x => x.QuestaoA == 1).Sum(x => x.QuestaoA.Value);
 
-            var total = new List<SomaGraficoModel>();
-                total.Add(new SomaGraficoModel{  Resposta ="Sim", Valor  = sumQuestaoAS });
-                total.Add(new SomaGraficoModel { Resposta = "Nao", Valor = Total - sumQuestaoAS });
+            var total = new List<SomaGraficoModel>
+            {
+                new SomaGraficoModel { Resposta = "Sim", Valor = sumQuestaoAS },
+                new SomaGraficoModel { Resposta = "Nao", Valor = Total - sumQuestaoAS }
+            };
 
             return Json(total);
         }

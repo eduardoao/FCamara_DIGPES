@@ -9,13 +9,16 @@
 
 <br />
 <br />
-<div class="container">
-    <div id="chart_div">
+<div class="container container-center">
+    <div id="divgrafico">
     </div>
-</div>
-<hr />
 
-<li><a asp-area="" asp-controller="Pesquisa" asp-action="Create">Início</a></li>
+    <hr />
+    <a asp-area="" class="btn btn-info" asp-controller="Pesquisa" asp-action="Create">Início</a>
+</div>
+
+
+
 
 
 <script>
@@ -33,7 +36,7 @@
                 toastr.error(err.message);
                 },
                 success: function (data) {
-                PopulationChart(data);
+                PopulaGrafico(data);
                 return false;
                 }
 
@@ -42,25 +45,24 @@
                 }
 
 
-    function PopulationChart(chartsdata) {
+    function PopulaGrafico(dadosentrada) {
 
                     var data = new google.visualization.DataTable();
 
                     data.addColumn('string', 'resposta');
                     data.addColumn('number', 'valor');
 
-                    for (var i = 0; i < chartsdata.length; i++) {
-                        data.addRow([chartsdata[i].resposta, chartsdata[i].valor]);
+                    for (var i = 0; i < dadosentrada.length; i++) {
+                        data.addRow([dadosentrada[i].resposta, dadosentrada[i].valor]);
                     }
 
-                    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+                    var chart = new google.visualization.PieChart(document.getElementById('divgrafico'));
 
                     chart.draw(data,
                         {
-                            title: "Gráfico sobre o total de respostas",
-                            //position: "top",
-                            fontsize: "20px",
-                            chartArea: { width: '80%' },
+                            title: "Gráfico sobre o total de respostas",                            
+                            fontsize: "22px",
+                            chartArea: { width: '85%' },
                         });
                 };
 </script>

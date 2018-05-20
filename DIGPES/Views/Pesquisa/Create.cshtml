@@ -1,7 +1,7 @@
 ﻿@model DIGPES.Models.PesquisaModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Cadastro";
 }
 
 <h2>Create</h2>
@@ -15,7 +15,7 @@
             <h3>PESQUISA DE SATISFAÇÃO</h3>
             <h4>DIGPES</h4>
             <fieldset>                
-                <input asp-for="OS" placeholder="Ordem de Serviço"  type="text" tabindex="1" required autofocus>
+                <input asp-for="OS" placeholder="Ordem de Serviço" class="with-text" type="number" tabindex="1" required autofocus>
             </fieldset>
             <fieldset>
                 <input asp-for="CodigoProduto" placeholder="Produto" type="text"  tabindex="2" required>
@@ -27,7 +27,7 @@
                 <input asp-for="Data"  placeholder="Data" type="date" class="tamanhodata" id="Data" tabindex="4" required>
             </fieldset>
             <fieldset>
-                <button name="submit" type="submit" id="submit-1" data-submit="...Enviando">Próximo</button>
+                <button name="submit" type="submit" id="submit-1" data-submit=".">Próximo</button>
             </fieldset>
         </form>
 

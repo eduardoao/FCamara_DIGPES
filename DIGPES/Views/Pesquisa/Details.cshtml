@@ -17,9 +17,9 @@
 
 <h2>Detalhes</h2>
 
-<div class="novofundo">
+<div class="container-center cor-segundo-box">
 
-    <form id="contact" asp-action="Atualizar" asp-controller="Pesquisa" method="POST" role="form" asp-antiforgery="true">
+    <form id="contact1" asp-action="Atualizar" asp-controller="Pesquisa" method="POST" role="form" asp-antiforgery="true">
 
         <div>
             <h4>PesquisaModel</h4>
@@ -55,7 +55,7 @@
                             @Model.Pesquisa.Nome
                         </td>
                         <td>
-                            @Model.Pesquisa.Data
+                            @Model.Pesquisa.Data.ToString("dd/MM/yyyy")
                         </td>
                         <td></td>
                     </tr>
@@ -151,6 +151,8 @@
             <input asp-for="@Model.Nome" type="hidden" />
             <input asp-for="@Model.CodigoProduto" type="hidden" />
             <input asp-for="@Model.OS" type="hidden" />
+
+            <input asp-for="@Model.Data" type="hidden" />
 
             <button name="submit" type="submit" id="submit-1" data-submit="...">Próximo</button>
             <a asp-action="Index">Back to List</a>
